@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--META TAGS-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="To-Do List" />
+    <meta
+      name="keywords"
+      content="daily task tracker, to-do list, task manager, productivity app, LaviTask, task planner, personal organizer, task checklist, schedule app, HTML CSS JavaScript project, responsive task app, simple to-do app, JavaScript task tracker, LaviFlow, web productivity tool" />
+    <!--STYLE FILE-->
+    <link rel="stylesheet" href="/assets/style/style.css" />
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet" />
+    <!--FAVICON-->
+    <link rel="icon" href="/assets/media/icon.png" />
+
+    <title>LaviList</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div id="welcome-section">
+          <form class="welcome-form" id="nameForm">
+            <label for="username">Enter your name: </label>
+            <!--INPUT FOR USERNAME-->
+            <input type="text" id="username" required />
+            <button type="submit">Submit</button>
+          </form>
+          <!--WELCOME MESSAGE-->
+          <div id="welcome-msg" class="welcome" style="display: none"></div>
+        </div>
+        <div>
+          <!--DARK MODE BUTTON-->
+          <button id="darkModeToggle">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </header>
+      <main>
+
+        <!--DATE DISPLAY-->
+        <div class="date-display">
+        <p>Today is: <span id="today-date" style="font-weight: bold"></span></p>
+      </div>
+
+      <!--TASK FORM-->
+      <div class="task-form">
+        <input type="text" id="taskTitle" placeholder="Task Title" />
+        <input type="date" id="taskDate" />
+        <button onclick="addTask()">Add Task</button>
+      </div>
+
+      <!--PROGRESS -->
+      <div class="progress-wrapper">
+        <div class="progress-circle" id="progressCircle">
+          <div class="progress-inner" id="progressText">0%</div>
+        </div>
+      </div>
+
+      <!--FILTERS-->
+      <div class="task-filters">
+        <button data-filter="all" onclick="filterTasks('all')">All</button>
+        <button data-filter="completed" onclick="filterTasks('completed')">
+          Completed
+        </button>
+        <button data-filter="pending" onclick="filterTasks('pending')">
+          Pending
+        </button>
+      </div>
+      
+      <!--TASK ADDED MESSAGE-->
+      <div id="notification" class="notification"></div>
+      
+      <!--EMPTY STATE-->
+      <div id="emptyState" class="empty-state">
+        <img
+        src="https://i.postimg.cc/L5BxSYjX/robot.gif"
+        alt="Empty" loading="eager"/>
+        <p>No tasks yet! Add your first one!</p>
+      </div>
+      
+      <!--TASK LIST-->
+      <div class="task-list" id="taskList">
+      </div>
+    </div>
+  </main>
+    
+    <!--FOOTER-->
+    <footer class="footer">
+      <div class="footer-content">
+        <p><strong>LaviList</strong> — Your friendly task manager 💖</p>
+        <ul class="footer-features">
+          <li>📝 Add / Edit / Delete Tasks</li>
+          <li>✅ Complete & Undo with Sound</li>
+          <li>📊 Live Progress Circle</li>
+          <li>🌗 Light/Dark Mode Toggle</li>
+          <li>🔍 Filter by Status</li>
+          <li>🙋 Editable Welcome Name</li>
+          <li>💾 Persistent Storage</li>
+          <li>🔔 Completion Tag & Task Added Message</li>
+        </ul>
+        <p class="footer-note">© 2025 LaviList. Made by Lavinia Nael ♡.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/3a0cb60883.js"
+      crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <audio
+      id="completeSound"
+      src="/assets/media/audio.mp3"
+      preload="auto"></audio>
+  </body>
+</html>
